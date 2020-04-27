@@ -1,0 +1,15 @@
+.highlight {
+	background: #F0FFFF !important;
+}
+
+.success {
+	background: #F0FFF0;
+}
+
+.fail {
+	background: #FFB6C1;
+}
+
+.list-group {
+	margin: 15px;
+}
