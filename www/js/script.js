@@ -75,11 +75,14 @@ $( document ).ready(function() {
 	
 	function checkProgress() {
 		$('.day').each(function() {
-		if (window.localStorage.getItem($(this).attr('id').match(/(\d{4})-(\d{2})-(\d{2})/)[0]+"-dualingo") != null
-			&& window.localStorage.getItem($(this).attr('id').match(/(\d{4})-(\d{2})-(\d{2})/)[0]+"-trening") != null
-			&& window.localStorage.getItem($(this).attr('id').match(/(\d{4})-(\d{2})-(\d{2})/)[0]+"-nauka") != null
-			&& window.localStorage.getItem($(this).attr('id').match(/(\d{4})-(\d{2})-(\d{2})/)[0]+"-pismo") != null
-			) {
+			console.log($(this).attr('id').match((/(\d{4})-(\d{2})-(\d{2})/)));
+			let match = $(this).attr('id').match((/(\d{4})-(\d{2})-(\d{2})/));
+			if (($(this).html() > day && match[1] == year && match[2] == month)|| match[1] != year || match[2] > month ) {
+			} else if (window.localStorage.getItem($(this).attr('id').match(/(\d{4})-(\d{2})-(\d{2})/)[0]+"-dualingo") != null
+				&& window.localStorage.getItem($(this).attr('id').match(/(\d{4})-(\d{2})-(\d{2})/)[0]+"-trening") != null
+				&& window.localStorage.getItem($(this).attr('id').match(/(\d{4})-(\d{2})-(\d{2})/)[0]+"-nauka") != null
+				&& window.localStorage.getItem($(this).attr('id').match(/(\d{4})-(\d{2})-(\d{2})/)[0]+"-pismo") != null
+				) {
 				$(this).removeClass('fail');
 				$(this).addClass('success');
 			} else {
